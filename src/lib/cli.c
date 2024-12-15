@@ -3,17 +3,18 @@ ShangShield by Alyx Shang.
 Licensed under the FSL v1.
 */
 
-#include "shangshield.h"
+#include "./cli.h"
+#include "./shangshield.h"
 
 char* cli(int argc, char* argv[]){
     char* result = "";
     if (argc == 5){
-        if (argv[1] != "" && 
+        if (str_comp(argv[1], "") == 0 && 
             is_int(argv[2]) == 0 &&
             is_int(argv[3]) == 0 &&
             is_int(argv[4]) == 0
         ){
-            int cut_off = argv[4];
+            int cut_off = convert_to_int(argv[4]);
             const char* pwd = argv[1];
             int letter_weight = convert_to_int(argv[2]);
             int special_char_weight = convert_to_int(argv[3]);

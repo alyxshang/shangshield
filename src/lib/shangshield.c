@@ -5,32 +5,13 @@ Licensed under the FSL v1.
 
 #include "shangshield.h"
 
+int str_len(const char* subject);
+
 enum str_type {
     Number,
     Letter,
     SpecialChar
 };
-
-int is_int(const char* subject){
-    int result = 0;
-    for (int i = 0; i < str_len(subject); i++){
-        enum str_type char_type = string_type(subject[i]);
-        if (char_type == Number){}
-        else {
-            result = 1;
-        }
-    }
-    return result;
-}
-
-int convert_to_int(char* subject){
-    int i = 0;
-    int result = 0;
-    while (subject[i] >= '0' && subject[i] <= '9') {
-        result = result * 10 + map_char_to_digit(subject[i]);
-        i++;
-    }
-}
 
 int map_char_to_digit(char subject){
     int result = 0;
@@ -209,6 +190,41 @@ int is_secure(
     if (score < cut_off){}
     else {
         result = 0;
+    }
+    return result;
+}
+
+int str_comp(const char* one, const char* two){
+    int result = 0;
+    for (int i = 0; i < str_len(one); i++){
+        for (int x = 0; x < str_len(two); x++){
+            if (one[i] == two[x]){}
+            else {
+                result = 1;
+            }
+        }
+    }
+    return result;
+}
+
+int is_int(const char* subject){
+    int result = 0;
+    for (int i = 0; i < str_len(subject); i++){
+        enum str_type char_type = string_type(subject[i]);
+        if (char_type == Number){}
+        else {
+            result = 1;
+        }
+    }
+    return result;
+}
+
+int convert_to_int(char* subject){
+    int i = 0;
+    int result = 0;
+    while (subject[i] >= '0' && subject[i] <= '9') {
+        result = result * 10 + map_char_to_digit(subject[i]);
+        i++;
     }
     return result;
 }

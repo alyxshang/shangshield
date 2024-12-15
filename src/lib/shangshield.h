@@ -16,6 +16,7 @@ int map_char_to_digit(char subject);
 int digit_distance(int one, int two);
 enum str_type string_type(char subject);
 int get_position_from_char(char subject);
+int str_comp(const char* one, const char* two);
 int security_score(const char* pwd, int letter_weight,int special_char_weight);
 int isSecure(const char* pwd, int letter_weight, int special_char_weight, int cut_off);
 int reduce_characters_to_number(char subject, int letter_weight, int special_char_weight);

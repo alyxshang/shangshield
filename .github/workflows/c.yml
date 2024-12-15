@@ -1,0 +1,25 @@
+on: [push]
+name: Shangshield CI
+env:
+    NAME: "libcoutils"
+    VERSION: "0.1.0"
+    
+jobs:
+
+  build_and_test:
+
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+          
+      - name: "Install build tools."
+        run: |
+          sudo apt-get update
+          sudo apt-get install clang -y
+          sudo apt-get install build-essential -y
+
+      - name: "Compile the binary."
+        run: make build
+
+      - name: "Run an evaluation."
+        run: make run

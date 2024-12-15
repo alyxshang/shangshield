@@ -1,0 +1,5 @@
+*.gch
+.DS_Store
+*.so
+*.o
+a.out
